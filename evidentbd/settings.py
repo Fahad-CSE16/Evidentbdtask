@@ -36,6 +36,8 @@ LOCAL_APPS = [
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY + LOCAL_APPS
 
+AUTHENTICATION_BACKENDS = ['userapp.authen.EmailBackend']
+AUTH_USER_MODEL = 'userapp.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
