@@ -33,6 +33,7 @@ THIRD_PARTY = [
 ]
 LOCAL_APPS = [
     'userapp',
+    'khoj',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY + LOCAL_APPS
 
