@@ -7,4 +7,4 @@ class Results(models.Model):
     input_values=models.TextField()
     search_value=models.IntegerField()
     result=models.BooleanField()
-    created_at=models.DateTimeField(auto_now_add=True)
+    timestamp=models.DateTimeField(auto_now_add=True)
