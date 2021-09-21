@@ -30,11 +30,10 @@ def handleSignup(request):
         form = SignUpForm(request.POST)
         # print(form.errors.as_data())
         if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
-            user.save()
-            messages.info(
-                request, 'Please confirm From your email address to complete the registration and Then you can login')
+            user = form.save()
+            messages.info(request, 'Successfulyy Registered')
+            login(request, user)
+            messages.success(request, f"You are now logged in as {user.username}")
             return redirect('home')
     else:
         form = SignUpForm()
