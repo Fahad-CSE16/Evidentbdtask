@@ -14,8 +14,11 @@ class ResultsListView(APIView):
         user_id=data['user_id']
         start_datetime =datetime.strptime(start_datetime, '%Y-%m-%d %H:%M:%S')
         end_datetime =datetime.strptime(end_datetime, '%Y-%m-%d %H:%M:%S')
+        # obs=Results.objects.all()
         obs=Results.objects.filter(timestamp__gte=start_datetime,timestamp__lte=end_datetime,user_id=user_id)
+        print(obs)
         serializer=ResultsSerializer(obs, many=True)
+        print(serializer.data)
         data={}
         data['status']="success"
         data['user_id']=user_id
