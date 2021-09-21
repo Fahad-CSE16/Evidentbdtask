@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 import re
+from django.contrib import messages
 # Create your views here.
 def khoj_the_search(request):
     if request.method=="POST":
@@ -15,7 +16,11 @@ def khoj_the_search(request):
             if i is None or i =='':
                 arr.remove(i)
                 print("call")
-        arr = [int(i) for i in arr]
+        try:
+            arr = [int(i) for i in arr]
+        except:
+            messages.warning(request,'Please Provide Valid Coma separated integers')
+            return render(request,'khoj/khoj.html')
         arr=sorted(arr,reverse=True)
 
         if int(query) in arr:
