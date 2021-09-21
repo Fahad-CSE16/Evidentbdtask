@@ -1,0 +1,9 @@
+django
+python-decouple
+dj-database-url
+djangorestframework
+django-crispy-forms
+django-multiselectfield
+Pillow
+djangorestframework-simplejwt
+django-extensions
