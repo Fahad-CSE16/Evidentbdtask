@@ -35,3 +35,17 @@ run
 python manage.py migrate
 python manage.py runserver
 ```
+
+
+
+# API Documentation
+
+## API 1.1  Get All Input Values
+This API don't receives user credentials, it will allow anyone to get data
+<b> URL: </b>http://127.0.0.1:8000/khoj/api/
+Method: “POST”
+Fields : “username”, ”password”
+API Payload Field Definitions:
+username: Use the username of the user (Type: Text)
+password: Use the password of the user (Type: Text)
+Response:
