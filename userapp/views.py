@@ -31,29 +31,10 @@ def handleSignup(request):
         # print(form.errors.as_data())
         if form.is_valid():
             user = form.save()
-<<<<<<< HEAD
-<<<<<<< HEAD
             print("user", user)
             messages.info(request, 'Successfully Registered!')
             login(request, user)
             messages.success(request, f"You are now logged in as {user.email}")
-=======
-<<<<<<< HEAD
-            messages.info(request, 'Successfulyy Registered')
-            login(request, user)
-            messages.success(request, f"You are now logged in as {user.username}")
-=======
-=======
->>>>>>> 6531267 (custom user working)
-            print("user", user)
-            messages.info(request, 'Successfully Registered!')
-            login(request, user)
-            messages.success(request, f"You are now logged in as {user.email}")
-<<<<<<< HEAD
->>>>>>> daf0390 (not working)
->>>>>>> 91b7aa5 (resolved)
-=======
->>>>>>> 6531267 (custom user working)
             return redirect('home')
     else:
         form = RegisterForm()

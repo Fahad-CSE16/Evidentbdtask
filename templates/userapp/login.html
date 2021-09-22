@@ -24,10 +24,6 @@ active
     {% endif %}
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-<<<<<<< HEAD
-
-=======
->>>>>>> 6531267 (custom user working)
         <h1>Login</h1>
           <div class="form-group">
             <label>Email address</label>
@@ -37,8 +33,7 @@ active
             <label >Password</label>
             <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
-        <button class="btn btn-primary" type="submit" value="submit">Login</button>
-        {% comment %} <input type="hidden" name="next" value="{{ next }}"> {% endcomment %}
+        <button class="btn btn-primary" type="submit" value="submit">Login</button>    
     </form>
     <p>
         <a class="text-center" style="text-align:center;" href="{% url 'register' %}">Register New Account</a>
