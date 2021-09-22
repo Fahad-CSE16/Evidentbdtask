@@ -1,6 +1,14 @@
 version: "3"
 
 services:
+  db:
+    image: postgis/postgis:11-2.5-alpine
+    environment:
+      - POSTGRES_USER=hotel_booking
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=hotel_booking
+    ports:
+      - 5434:5432
   web:
     container_name: evident
     build:
@@ -11,5 +19,6 @@ services:
       - 8000:8000
     volumes:
       - ./:/Demo/
-
-
+    depends_on:
+      - db
+  
