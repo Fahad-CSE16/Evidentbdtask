@@ -7,10 +7,12 @@ User = get_user_model()
 class RegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password_2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
-
+    date_of_birth = forms.DateTimeField(
+        widget=forms.TextInput(
+            attrs={'type': 'date', 'class': 'form-control'}))
     class Meta:
         model = User
-        fields = ['email','password','password_2']
+        fields = ['email','first_name','last_name','gender','date_of_birth','phone','blood_group','password','password_2']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
