@@ -24,10 +24,6 @@ pip install -r requirements.txt
 
 Create User and Database on Postgresql similar as projects settings.py DATABASE Settings 
 
-or 
-
-Simply comment postgresql settings portion and uncomment sqlite3 settings portion
-
 ##### Step 4
 
 run 
