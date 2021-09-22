@@ -14,7 +14,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = ['*']
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -27,9 +27,11 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY = [
     'rest_framework',
+    'rest_framework_simplejwt',
     'crispy_forms',
     'multiselectfield',
     'django_extensions',
+    'rest_framework.authtoken',
 ]
 LOCAL_APPS = [
     'userapp',
@@ -80,8 +82,8 @@ WSGI_APPLICATION = 'evidentbd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'davide',
-        'PASSWORD': 'jw8s0F4',
+        'USER': 'postgres',
+        'PASSWORD': 'Fahad420',
         # # to run with docker in my case
         # 'NAME': 'evidendb',
         # 'HOST': 'db',
@@ -90,6 +92,13 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': 5432
     }
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
 }
 AUTH_PASSWORD_VALIDATORS = [
     {
