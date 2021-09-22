@@ -27,38 +27,36 @@ class HomeView(TemplateView):
 
 def handleSignup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = RegisterForm(request.POST)
         # print(form.errors.as_data())
         if form.is_valid():
             user = form.save()
-            messages.info(request, 'Successfulyy Registered')
+            print("user", user)
+            messages.info(request, 'Successfully Registered!')
             login(request, user)
-            messages.success(request, f"You are now logged in as {user.username}")
+            messages.success(request, f"You are now logged in as {user.email}")
             return redirect('home')
     else:
-        form = SignUpForm()
+        form = RegisterForm()
     return render(request, 'userapp/register.html', {'form': form})
 
 
 def handleLogin(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request=request, data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                messages.success(request, f"You are now logged in as {username}")
-                return redirect('home')
-            else:
-                messages.error(request, "Invalid username or password.")
+        email =request.POST['email']
+        password = request.POST['password']
+        print(email, password)
+        user = authenticate(username=email, password=password)
+        print("user", user)
+        if user is not None:
+            login(request, user)
+            messages.success(request, f"You are now logged in as {user.email}")
+            return redirect('home')
         else:
-            messages.error(request, "Invalid username or password.")
-    form = AuthenticationForm()
+            messages.error(request, "Invalid email or password.")
+
     return render(request=request,
-                  template_name="userapp/login.html",
-                  context={"form": form})
+                  template_name="userapp/login.html",)
 
 def handleLogout(request):
     logout(request)
