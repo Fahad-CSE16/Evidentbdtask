@@ -55,6 +55,15 @@ docker-compose build
 docker-compose up
 ```
 
+### step 3 To migrate and createsuperuser , in another terminal
+```
+docker ps
+```
+copy the container name and 
+```
+docker exec containername python manage migrate
+docker exec -it containername python manage createsuperuser 
+```
 
 # API Documentation
 
