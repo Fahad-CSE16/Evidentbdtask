@@ -14,7 +14,8 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,10 +78,10 @@ WSGI_APPLICATION = 'evidentbd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'evidentdb',
-        'USER': 'postgres',
-        'PASSWORD': 'Fahad420',
-        'HOST': 'localhost',
+        'NAME': 'evidendb',
+        'USER': 'davide',
+        'PASSWORD': 'jw8s0F4',
+        'HOST': 'db',
         'PORT': 5432
     }
 }
