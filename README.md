@@ -76,4 +76,5 @@ start_datetime: format='%Y-%m-%d %H:%M:%S'  example:'2021-09-21 19:12:11'  (Type
 end_datetime: format='%Y-%m-%d %H:%M:%S' example:'2021-09-21 19:12:11' (Type: Text)
 
 Response:
-{"status":"success","user_id":"1","payload":[{"input_values":"['4', '3', '2', '1']","timestamp":"2021-09-21T19:12:11.867663+06:00"},{"input_values":"['6', '5', '4', '2', '1', ' 3', '', '', '', '']","timestamp":"2021-09-21T19:51:54.456657+06:00"}]}
+
+{"status":"success","user_id":"3","payload":[{"input_values":[4,3,2,1],"timestamp":"2021-09-22T07:22:10.928291+06:00"},{"input_values":[11,10,9,7,5,1,0],"timestamp":"2021-09-22T07:22:16.264936+06:00"},{"input_values":[11,10,9,7,5,1,0],"timestamp":"2021-09-22T07:22:27.139162+06:00"}]}
