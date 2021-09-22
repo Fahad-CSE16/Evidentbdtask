@@ -80,10 +80,14 @@ WSGI_APPLICATION = 'evidentbd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'evidendb',
         'USER': 'davide',
         'PASSWORD': 'jw8s0F4',
-        'HOST': 'db',
+        # # to run with docker in my case
+        # 'NAME': 'evidendb',
+        # 'HOST': 'db',
+        # To run in localhost
+        'NAME': 'evidentdb',
+        'HOST': 'localhost',
         'PORT': 5432
     }
 }

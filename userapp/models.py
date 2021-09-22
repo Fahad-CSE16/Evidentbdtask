@@ -41,15 +41,24 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    is_active = models.BooleanField(default=True)
+    CHOICES=(
+        ('Male','Male'),
+        ('Female','Female'),
+        ('Custom','Custom')
+    )
+    phone=models.CharField(max_length=17, default='' ,blank=True, null=True)
+    first_name=models.CharField(max_length=100, default='' ,blank=True, null=True)
+    last_name=models.CharField(max_length=100, default='' ,blank=True, null=True)
+    blood_group=models.CharField(max_length=10, default='' ,blank=True, null=True)
+    date_of_birth=models.DateField(blank=True, null=True)
+    gender=models.CharField( max_length=100, choices=CHOICES, blank=True, null=True)
+    is_active = models.BooleanField(default=True,blank=True,)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = [] 
     objects = UserManager()
-    def get_full_name(self):
-        return self.email
 
     def get_short_name(self):
         return self.email
