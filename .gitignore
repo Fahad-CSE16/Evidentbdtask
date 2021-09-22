@@ -1,6 +1,7 @@
 # My workspace
 /node_modules
-
+/data
+/db
 /venv
 */__pycache__/*
 *.cpython.pyc
