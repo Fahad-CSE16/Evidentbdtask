@@ -3,6 +3,9 @@ from .models import *
 import re
 from django.contrib import messages
 # Create your views here.
+from django.contrib.auth.decorators import login_required
+
+@login_required(login_url='login')
 def khoj_the_search(request):
     if request.method=="POST":
         arr=request.POST['array']

@@ -13,17 +13,6 @@ class RegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['email','first_name','last_name','gender','date_of_birth','phone','blood_group','password','password_2']
-        # required_field = (
-        #     'email',
-        #     'first_name',
-        #     'last_name',
-        #     'gender',
-        #     'date_of_birth',
-        #     'phone',
-        #     'blood_group',
-        #     'password',
-        #     'password_2',
-        # )
     
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -70,11 +59,8 @@ class UserAdminCreationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
-
-
 class UserAdminChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
-
     class Meta:
         model = User
         fields = ['email', 'password', 'is_active']
@@ -82,10 +68,7 @@ class UserAdminChangeForm(forms.ModelForm):
     def clean_password(self):
         return self.initial["password"]
 
-
 class LoginForm(forms.ModelForm):
     class Meta:
         model=User
         fields=['email','password']
-    # email=forms.EmailField()
-    # password=forms.PasswordInput()
