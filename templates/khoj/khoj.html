@@ -29,8 +29,12 @@
             </form>
             {% if result %}
             <div>
-                <b>Result:</b>{{result}}
-            </div>
+            <div class="row pt-3" >
+                <div class="col-md-4"><b>Result:</b>
+                </div>
+                <div class="col-md-8 text-left">
+                {{result}}
+                </div>
             {% endif %}
         </div>
     </div>
@@ -53,8 +57,9 @@
 {% block js %}
 <script>
 window.onload = function() {
-    const r= "True"
-    if(r=='{{result}}'){
+    const t= "True"
+    const f= "False"
+    if(t=='{{result}}'){
         Swal.fire({
         title: '{{result}}',
         text: 'Match Found! Do you want to continue?',
@@ -62,7 +67,7 @@ window.onload = function() {
         confirmButtonText: 'Okay'
         })
     }
-    else{
+    else if (f=='{{result}}'){
         Swal.fire({
         title: '{{result}}',
         text: 'Match Not Found!',
