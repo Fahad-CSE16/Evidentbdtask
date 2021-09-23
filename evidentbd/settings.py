@@ -1,9 +1,9 @@
 
-import os
 from decouple import (
     config, 
     Csv
 )
+import os,django_heroku,dj_database_url
 from datetime import timedelta
 from pathlib import Path
 from dj_database_url import parse as db_url
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'evidentbd.urls'
@@ -68,14 +69,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'evidentbd.wsgi.application'
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -134,3 +128,4 @@ EMAIL_HOST_PASSWORD = '*******'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'OTF Team <email@gmail.com>'
+django_heroku.settings(locals())
