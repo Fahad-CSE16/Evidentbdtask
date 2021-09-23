@@ -13,7 +13,18 @@ class RegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['email','first_name','last_name','gender','date_of_birth','phone','blood_group','password','password_2']
-
+        # required_field = (
+        #     'email',
+        #     'first_name',
+        #     'last_name',
+        #     'gender',
+        #     'date_of_birth',
+        #     'phone',
+        #     'blood_group',
+        #     'password',
+        #     'password_2',
+        # )
+    
     def clean_email(self):
         email = self.cleaned_data.get('email')
         qs = User.objects.filter(email=email)

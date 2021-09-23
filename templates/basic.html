@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script> {% endcomment %}
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Stick No Bills|Sofia|Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Stick No Bills|Sofia|Roboto|Sevillana|Tangerine:wght@700&display=swap">
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
@@ -28,16 +28,21 @@
     {% include 'components/header.html' %}
 
     {% comment %} Div for Showing Messages {% endcomment %}
-  <div class="pt-5">
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong></strong> {{ message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 pt-3">
+        <div class=" pt-5">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong></strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
         </div>
-    {% endfor %}
-  </div>
+      </div>
+    </div>
+  
   <br>
     
 

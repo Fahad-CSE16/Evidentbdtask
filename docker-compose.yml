@@ -15,15 +15,14 @@ services:
       - db
   db:
     image: postgis/postgis:11-2.5-alpine
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=admin
-      - POSTGRES_USER=evident1
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=davide
+      - POSTGRES_PASSWORD=jw8s0F4
     ports:
       - 5434:5432
-    volumes:
-      - db_data:/var/lib/postgresql/data
-volumes:
-  db_data:
   
 
 
