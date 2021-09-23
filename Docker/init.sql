@@ -1,0 +1,7 @@
+CREATE USER docker WITH PASSWORD "docker";
+
+CREATE DATABASE docker;
+GRANT ALL PRIVILEGES ON DATABASE docker TO docker;
+
+CREATE DATABASE docker_test;
+GRANT ALL PRIVILEGES ON DATABASE docker_test TO docker;
