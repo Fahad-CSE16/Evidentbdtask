@@ -2,27 +2,41 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
+{% load static %}
 {% load crispy_forms_tags %}
-<div class="col-md-4 offset-md-4 py-3" style="box-shadow: 0 4px 50px 0 rgb(249 235 235 / 20%), 0 6px 50px 0 rgb(227 215 215 / 19%);">
-    <form method="post">
-        {% csrf_token %}
-        <h3 class="text-center">Khoj The Search</h3>
-        <div class="form-group">
-            <label>Input Values</label>
-            <input name="array" type="text" class="form-control" required>
+
+<div class="container" style="box-shadow: 0 4px 50px 0 rgb(249 235 235 / 20%), 0 6px 50px 0 rgb(227 215 215 / 19%);">
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="img">
+                <img src="{% static 'img/DetectiveSilhoette.svg' %}">
+            </div>
         </div>
-        <div class="form-group">
-            <label>Search Value</label>
-            <input name='query' type="text" class="form-control" required>
+        <div class="col-md-5 offset-md-2 py-3" style="font-family:Lobster; font-size:2rem;" >
+            <form method="post">
+                {% csrf_token %}
+                <h3 class="text-center" style="font-family:Tangerine; font-size:3rem;"> <b> Khoj The Search</b></h3>
+                <div class="form-group">
+                    <label>Input Values</label>
+                    <input name="array" type="text" style="font-family:Roboto; font-size:1.2rem;" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Search Value</label>
+                    <input name='query' style="font-family:Roboto; font-size:1.2rem;" type="number" class="form-control" required>
+                </div>
+                <button class="btn btn-primary" type="submit" style="width:100%; font-size:1.5rem;">Search</button>
+            </form>
+            {% if result %}
+            <div>
+                <b>Result:</b>{{result}}
+            </div>
+            {% endif %}
         </div>
-        <button class="btn btn-primary" type="submit" style="width:100%; font-size:1.5rem;">Search</button>
-    </form>
-    {% if result %}
-    <div>
-        <b>Result:</b>{{result}}
     </div>
-    {% endif %}
 </div>
+
+
 
 {% endblock %}
 
@@ -35,3 +49,29 @@
    background:none;
 }
 {% endblock %}
+
+{% block js %}
+<script>
+window.onload = function() {
+    const r= "True"
+    if(r=='{{result}}'){
+        Swal.fire({
+        title: '{{result}}',
+        text: 'Match Found! Do you want to continue?',
+        icon: 'success',
+        confirmButtonText: 'Okay'
+        })
+    }
+    else{
+        Swal.fire({
+        title: '{{result}}',
+        text: 'Match Not Found!',
+        icon: 'error',
+        confirmButtonText: 'Close'
+        })
+    }
+};
+</script>
+
+
+{% endblock js %}
