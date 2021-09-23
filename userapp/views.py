@@ -28,6 +28,7 @@ def handleSignup(request):
         form = RegisterForm(request.POST)
         # print(form.errors.as_data())
         if form.is_valid():
+            print("calling")
             user = form.save()
             print("user", user)
             messages.info(request, 'Successfully Registered!')

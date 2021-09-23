@@ -57,7 +57,7 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [] 
+    REQUIRED_FIELDS = ['phone','first_name','last_name','blood_group','date_of_birth','gender'] 
     objects = UserManager()
 
     def get_short_name(self):
