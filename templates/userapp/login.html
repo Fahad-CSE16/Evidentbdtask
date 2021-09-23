@@ -8,7 +8,7 @@ active
 {% endblock Login %}
 {% block body %}
 {% load crispy_forms_tags %}
-<div class="col-md-4 offset-md-4 px-1" style="
+<div class="col-md-4 offset-md-4 px-1" style=" background:black;
     box-shadow: 0 4px 50px 0 rgb(249 235 235 / 20%), 0 6px 50px 0 rgb(227 215 215 / 19%);">
 <div class="container bordered">
     {% if form.errors %}
@@ -50,5 +50,7 @@ active
     background-color: rgb(99, 68, 128);
     color:aliceblue;
 }
-
+.form-control{
+   background:none;
+}
 {% endblock css %}

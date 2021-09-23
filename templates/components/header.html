@@ -1,6 +1,6 @@
  
 {% load static %}
- <div class="navbar menu navbar-dark bg-none mb-5 navbar-expand-sm fixed-top" style="background:none; color:white;">
+ <div class="navbar menu navbar-dark bg-none mb-5 navbar-expand-sm fixed-top" style="background:none;background:#161313; box-shadow: 0 4px 50px 0 rgb(249 235 235 / 20%), 0 6px 50px 0 rgb(227 215 215 / 19%); color:white;">
     <div class="container">
       <h1 class="text-center text-white" style="font-family:Tangerine;"> <a class="text-center text-white" href="/"> <b>EvidentBD</b> </a></h1>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -10,7 +10,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto font-weight-bold">
-          <li class="nav-item"> <a href="/" class="nav-link">Home</a> </li>
+          <li class="nav-item"> <a href="/" class="nav-link active">Home</a> </li>
           {% if user.is_authenticated %}
             <li class="nav-item"> <a href="{% url 'logout' %}" class="nav-link">Logout</a> </li>
             <li class="nav-item"> <a href="{% url 'khoj_the_search' %}" class="nav-link">Khoj</a> </li>
