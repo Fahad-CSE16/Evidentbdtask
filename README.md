@@ -1,6 +1,25 @@
 # Evidentbd Task Evaluation
+## Run using Docker
+### install docker and docker-compose (manually start docker if os=windows)
 
-### Steps to Run 
+and then run these command
+
+```
+docker-compose build
+docker-compose up
+```
+
+##### To migrate and createsuperuser , in another terminal
+```
+docker ps
+```
+copy the container name and 
+```
+docker exec containername python manage migrate
+docker exec -it containername python manage createsuperuser 
+```
+
+### Steps to Run Without Docker
 ##### Step 1
 
 Clone The repository and Create Virtual envronment
@@ -22,7 +41,9 @@ pip install -r requirements.txt
 ```
 ##### Step 3
 
-Create User and Database on Postgresql similar as projects settings.py DATABASE Settings 
+Create User and Database on Postgresql similar as projects settings.py DATABASE Settings and change DATABASE Settings
+
+`'HOST': 'db'` to `'HOST': 'localhost'`
 
 ##### Step 4
 
@@ -33,25 +54,6 @@ python manage.py runserver
 ```
 
 
-## Run using Docker
-### install docker and docker-compose (manually start docker if os=windows)
-
-and then run these command
-
-```
-docker-compose build
-docker-compose up
-```
-
-##### To migrate and createsuperuser , in another terminal
-```
-docker ps
-```
-copy the container name and 
-```
-docker exec containername python manage migrate
-docker exec -it containername python manage createsuperuser 
-```
 
 # API Documentation
 
