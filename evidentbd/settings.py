@@ -80,13 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
-        'PASSWORD': 'Fahad420',
-        # # to run with docker in my case
-        # 'NAME': 'evidendb',
-        # 'HOST': 'db',
-        # To run in localhost
-        'NAME': 'evidentdb',
-        'HOST': 'localhost',
+        'PASSWORD': 'postgres',
+        'NAME': 'postgres',
+        'HOST': 'db',
         'PORT': 5432
     }
 }
