@@ -5,5 +5,5 @@ from .models import *
 
 class ResultsSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Results
-        fields=['input_values','timestamp']
+        model = Results
+        fields = ['input_values','timestamp']

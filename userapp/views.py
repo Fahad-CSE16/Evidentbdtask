@@ -28,7 +28,7 @@ def handleSignup(request):
 @unauthenticated_user
 def handleLogin(request):
     if request.method == 'POST':
-        email =request.POST['email']
+        email = request.POST['email']
         password = request.POST['password']
         user = authenticate(username=email, password=password)
         if user is not None:
