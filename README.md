@@ -34,7 +34,7 @@ python manage.py runserver
 
 
 ## Run using Docker
-### step  install docker and docker-compose (manually start docker if os=windows)
+### install docker and docker-compose (manually start docker if os=windows)
 
 and then run these command
 
@@ -43,7 +43,7 @@ docker-compose build
 docker-compose up
 ```
 
-### step 3 To migrate and createsuperuser , in another terminal
+##### To migrate and createsuperuser , in another terminal
 ```
 docker ps
 ```
