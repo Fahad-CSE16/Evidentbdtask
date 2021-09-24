@@ -21,12 +21,21 @@ class ResultsListView(APIView):
 
         # Filtering Results
         obs=Results.objects.filter(timestamp__gte=start_datetime,timestamp__lte=end_datetime,user_id=user_id)
-        serializer=ResultsSerializer(obs, many=True)
 
         # Making Response
         data={}
         data['status']="success"
         data['user_id']=user_id
-        data['payload']=serializer.data
-        
+        # # Previous Payloads
+        # data['payload']=serializer.data
+        # serializer=ResultsSerializer(obs, many=True)
+
+
+        # New Payload Making
+        data['payload']=[]
+        for ob in obs:
+            data['payload'].append({
+                "timestamp": ob.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+                "input_values": ', '.join(str(e) for e in  ob.input_values),
+            })
         return Response(data)
