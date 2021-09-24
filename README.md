@@ -34,15 +34,7 @@ python manage.py runserver
 
 
 ## Run using Docker
-
-### Step 1
-
-run postgresql 
-```
-sudo systemctl start postgresql
-sudo systemctl enable postgresql
-```
-### step 2  install docker and docker-compose (manually start docker if os=windows)
+### step  install docker and docker-compose (manually start docker if os=windows)
 
 and then run these command
 
