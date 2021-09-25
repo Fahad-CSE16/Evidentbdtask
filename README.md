@@ -76,4 +76,4 @@ end_datetime: format='%Y-%m-%d %H:%M:%S' example:'2021-09-21 19:12:11' (Type: Te
 
 Response:
 
-{"status":"success","user_id":"3","payload":[{"input_values":[4,3,2,1],"timestamp":"2021-09-22T07:22:10.928291+06:00"},{"input_values":[11,10,9,7,5,1,0],"timestamp":"2021-09-22T07:22:16.264936+06:00"},{"input_values":[11,10,9,7,5,1,0],"timestamp":"2021-09-22T07:22:27.139162+06:00"}]}
+{"status":"success","user_id":"1","payload":[{"timestamp":"2021-09-23 17:57:51","input_values":"4, 3, 2, 1"},{"timestamp":"2021-09-23 17:58:36","input_values":"11, 10, 9, 7, 5, 1, 0"},{"timestamp":"2021-09-23 17:58:59","input_values":"11, 10, 9, 7, 5, 1, 0"}]}
